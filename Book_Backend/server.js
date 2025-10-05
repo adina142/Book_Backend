@@ -44,6 +44,5 @@ app.get('/', (req, res) => {
 const { errorHandler } = require('./src/middleware/errorHandler');
 app.use(errorHandler);
 
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+// ✅ Export app instead of listening (important for Vercel)
+module.exports = app;
