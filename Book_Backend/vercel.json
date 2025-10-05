@@ -2,23 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/*/.js",
-      "use": "@vercel/node"
+      "src": "app.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["dist/**"] }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "app.js"
     }
-  ],
-  "env": {
-    "MONGO_URI": "your-mongodb-atlas-uri",
-    "JWT_SECRET": "super_secret_jwt_key_12345",
-    "NODE_ENV": "production"
-  }
+  ]
 }
